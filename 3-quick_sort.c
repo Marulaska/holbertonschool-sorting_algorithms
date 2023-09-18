@@ -2,10 +2,10 @@
 
 /**
 * quick_sorty - function that sorts an array
-* @array: trunc array to sort
-* @p_array: array to sort
-* @size: trunc array size
-* @p_size: size of the array
+* @array: array to sort
+* @p_array: original array
+* @size: size of the array
+* @p_size: original size
 **/
 
 void quick_sorty(int *array, int *p_array, size_t size, size_t p_size)
@@ -26,16 +26,18 @@ void quick_sorty(int *array, int *p_array, size_t size, size_t p_size)
 	array[index] = array[target];
 	array[target] = temp_num;
 	target++;
+
 	if (index >= target)
 	print_array(p_array, p_size);
 	}
+	}
+
 	temp_num = array[end];
 	array[end] = array[target];
 	array[target] = temp_num;
 
 	if (end != target && array[index] != array[target])
 	print_array(p_array, p_size);
-
 	quick_sorty(&array[0], p_array, target, p_size);
 	quick_sorty(&array[target + 1], p_array, end - target, p_size);
 }
@@ -51,3 +53,4 @@ void quick_sort(int *array, size_t size)
 	return;
 	quick_sorty(array, array, size, size);
 }
+
